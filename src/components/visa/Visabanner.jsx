@@ -16,7 +16,7 @@ const VisaBanner = () => {
           {/* Text */}
           <div className="text-center lg:text-left">
             <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3 leading-snug">
-              Apply for all Tourist visas online in one place – Chennai Visa
+              Apply for all Tourist visas online in one place - Chennai Visa
               Service
             </h1>
             <p className="text-base md:text-lg text-blue-900 font-medium mb-4">

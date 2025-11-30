@@ -14,14 +14,14 @@ const Hero = () => {
       />
 
       {/* Stronger Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10 z-0" />
+      <div className="absolute inset-0 bg-linear-to-r from-white via-white/95 to-white/10 z-0" />
 
       {/* Hero Content */}
       <div className="relative z-10 container mx-auto px-5 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Section */}
         <div className="flex flex-col justify-center max-w-xl lg:max-w-2xl">
           <div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-900 leading-tight tracking-tight">
               GET THE VISA.
               <br />
               WITHOUT ANY
@@ -54,7 +54,7 @@ const Hero = () => {
             </div>
 
             <p className="text-gray-500 text-xs sm:text-sm mt-3">
-              Search your visa by country – e.g., Japan, France, Dubai...
+              Search your visa by country - e.g., Japan, France, Dubai...
             </p>
           </div>
 

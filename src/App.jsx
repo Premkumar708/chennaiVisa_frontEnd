@@ -18,6 +18,8 @@ import ReviewPay from "./components/visa/ReviewPay";
 
 import ScrollToTop from "./components/common/ScrollToTop";
 import ApplicationProvider from "./context/ApplicationContext";
+import Blog from "./components/home/Blog";
+import ProfilePage from "./components/common/ProfilePage";
 
 export default function App() {
   return (
@@ -28,24 +30,36 @@ export default function App() {
         <ApplicationProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow pt-24">
+            <main className="pt-24">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/visa" element={<Visa />} />
                 <Route path="/visa/:slug" element={<VisaDetail />} />
                 <Route path="/visa/:slug/:purpose" element={<VisaOptions />} />
 
-                {/* Info page with tabs */}
-                <Route path="/visa/:slug/:purpose/visapply" element={<VisaApply />} />
-                {/* Your alias */}
-                <Route path="/visa/:slug/:purpose/applyvisa" element={<ApplyVisa />} />
+                <Route path="/profile" element={<ProfilePage />} />
 
-                {/* NEW: add traveller form + review & pay */}
-                <Route path="/visa/:slug/:purpose/traveller/new" element={<TravellerForm />} />
-                <Route path="/visa/:slug/:purpose/review" element={<ReviewPay />} />
+                <Route
+                  path="/visa/:slug/:purpose/visapply"
+                  element={<VisaApply />}
+                />
+                <Route
+                  path="/visa/:slug/:purpose/applyvisa"
+                  element={<ApplyVisa />}
+                />
+
+                <Route
+                  path="/visa/:slug/:purpose/traveller/new"
+                  element={<TravellerForm />}
+                />
+                <Route
+                  path="/visa/:slug/:purpose/review"
+                  element={<ReviewPay />}
+                />
 
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<FAQ />} />
+                <Route path="/blogs" element={<Blog />} />
               </Routes>
             </main>
             {/* <Footer /> */}

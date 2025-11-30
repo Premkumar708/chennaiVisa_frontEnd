@@ -1,5 +1,4 @@
 import React from "react";
-import { Plane } from "lucide-react";
 
 const blogPosts = [
   {
@@ -17,7 +16,7 @@ const blogPosts = [
     author: "BhuvaniDharan",
     date: "17 July 2025",
     title:
-      "Get Your Singapore Tourist Visa in Just 2 Days with Chennai Visa Service – Fast, Reliable & Hassle-Free!",
+      "Get Your Singapore Tourist Visa in Just 2 Days with Chennai Visa Service - Fast, Reliable & Hassle-Free!",
   },
 ];
 
@@ -32,12 +31,12 @@ const Blog = () => {
           </p>
 
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[#041233] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 leading-tight tracking-tight">
               Travel Tips, Visa Guides & Inspiring
             </h2>
 
             <div className="flex items-center justify-center relative">
-              <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[#041233]">
+              <h2 className="text-4xl md:text-5xl font-bold text-blue-900 tracking-tight">
                 Stories From Around the World
               </h2>
 
@@ -73,14 +72,14 @@ const Blog = () => {
           {blogPosts.map((post, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+              className="bg-white rounded-3xl shadow-md overflow-hidden"
             >
               {/* Image */}
               <div className="relative h-80 overflow-hidden">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500"
                 />
                 <span className="absolute top-5 left-5 bg-white text-[#041233] px-4 py-1.5 rounded-full text-xs font-semibold uppercase shadow-md">
                   {post.category}

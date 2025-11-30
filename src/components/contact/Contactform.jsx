@@ -89,7 +89,7 @@ function Contactform() {
                     +91 9709708777
                   </p>
                   <p className="text-slate-500 text-sm">
-                    (Monday to Saturday, 10 AM – 6 PM)
+                    (Monday to Saturday, 10 AM - 6 PM)
                   </p>
                 </div>
               </div>

@@ -129,7 +129,7 @@ const Footer = () => {
                   <div>
                     <div className="text-white">+91 9709708777</div>
                     <div className="text-blue-300 text-xs">
-                      (Monday to Saturday, 10 AM – 6 PM)
+                      (Monday to Saturday, 10 AM - 6 PM)
                     </div>
                   </div>
                 </div>

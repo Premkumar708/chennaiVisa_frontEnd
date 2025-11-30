@@ -35,7 +35,7 @@ const FAQ = () => {
           <p className="text-[#ffbf00] text-sm font-semibold uppercase tracking-wide mb-1">
             Frequently Ask Questions
           </p>
-          <h2 className="text-[#002b5c] text-3xl md:text-[32px] font-semibold leading-snug">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 leading-snug tracking-tight">
             Common Questions About Chennai Visa Service
           </h2>
         </div>

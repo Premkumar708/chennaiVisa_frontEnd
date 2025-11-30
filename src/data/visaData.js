@@ -4,7 +4,8 @@ export const visaData = {
       country: "Thailand",
       visaType: "Tourist Visa",
       stayDuration: "Up to 30 days",
-      image: "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=800",
       disclaimer: [
         "Business Days: Monday to Friday",
         "Prices are subject to change without notice",
@@ -52,7 +53,7 @@ export const visaData = {
       faqs: [
         {
           question: "How long does the process take?",
-          answer: "Usually 3–5 business days after document submission.",
+          answer: "Usually 3-5 business days after document submission.",
         },
         {
           question: "Can I extend my visa stay?",

@@ -31,7 +31,6 @@ const Whyus = () => {
   return (
     <section className="relative bg-[#041233] text-white py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-start justify-between">
-        {/* LEFT: Text + Features */}
         <div className="max-w-3xl">
           <p className="text-[#F9CC00] text-sm font-semibold uppercase tracking-wide mb-2">
             Why Go With Chennai Visa Service
@@ -65,22 +64,20 @@ const Whyus = () => {
           </div>
         </div>
 
-        {/* RIGHT: Illustration */}
         <div className="mt-12 lg:mt-0 lg:ml-12 flex justify-center lg:justify-end">
           <img
-            src="/whyus.webp" // replace with your correct image path
+            src="/whyus.webp"
             alt="Happy travelers illustration"
             className="w-[320px] md:w-[360px] lg:w-[400px] object-contain"
           />
         </div>
       </div>
 
-      {/* Decorative mountain image at bottom */}
-      <img
+      {/* <img
         src="/mountain.png" // replace with your mountain image path
         alt="mountain decoration"
         className="absolute bottom-0 left-0 w-full object-cover"
-      />
+      /> */}
     </section>
   );
 };

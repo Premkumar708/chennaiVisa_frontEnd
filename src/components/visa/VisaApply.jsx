@@ -170,7 +170,6 @@
 // }
 
 // VisaApply.jsx (updated)
-// Fetch product from server instead of importing local visaProducts
 import React, { useRef, useState, useEffect } from "react";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -225,7 +224,7 @@ export default function VisaApply() {
     }
 
     setLoading(true);
-    console.log(productId + "Pro");
+    // console.log(productId + "Pro");
     // fetch product from backend endpoint: GET /api/product/:productId
     fetch(`${API}/api/product/${encodeURIComponent(productId)}`)
       .then(async (res) => {

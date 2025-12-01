@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
-// import Footer from "./components/common/Footer";
+import Footer from "./components/common/Footer";
 import Home from "./pages/Home";
 import Visa from "./pages/Visa";
 import VisaDetail from "./components/visa/VisaDetail";
@@ -20,6 +20,8 @@ import ScrollToTop from "./components/common/ScrollToTop";
 import ApplicationProvider from "./context/ApplicationContext";
 import Blog from "./components/home/Blog";
 import ProfilePage from "./components/common/ProfilePage";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -57,12 +59,16 @@ export default function App() {
                   element={<ReviewPay />}
                 />
 
+                <Route path="/payment-success" element={<PaymentSuccess />} />
+
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/blogs" element={<Blog />} />
+
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </ApplicationProvider>
       </BrowserRouter>

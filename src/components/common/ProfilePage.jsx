@@ -10,7 +10,7 @@ export default function ProfilePage() {
     user?.picture || "https://ui-avatars.com/api/?name=" + displayName;
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center">
+    <div className=" py-10 px-4 flex justify-center">
       <div className="bg-white shadow-md rounded-xl p-6 w-full max-w-md border border-gray-200">
         <div className="flex flex-col items-center text-center mb-6">
           <img

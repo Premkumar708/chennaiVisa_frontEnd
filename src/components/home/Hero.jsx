@@ -5,7 +5,7 @@ const Hero = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-white pt-24">
+    <section className="relative h-screen flex items-center overflow-hidden bg-white pt-24">
       {/* Background Image */}
       <img
         src="https://images.pexels.com/photos/8281064/pexels-photo-8281064.jpeg"

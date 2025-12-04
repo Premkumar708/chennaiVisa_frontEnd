@@ -127,7 +127,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3 text-sm">
                   <Phone className="text-[#F9CC00]" size={18} />
                   <div>
-                    <div className="text-white">+91 9709708777</div>
+                    <div className="text-white">+91  98848 83757</div>
                     <div className="text-blue-300 text-xs">
                       (Monday to Saturday, 10 AM - 6 PM)
                     </div>
@@ -136,7 +136,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3 text-sm">
                   <Mail className="text-[#F9CC00]" size={18} />
                   <span className="text-blue-200">
-                    support@Chennai Visa Service.com
+                    info@chennaivisaservices.in
                   </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">

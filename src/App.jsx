@@ -22,6 +22,7 @@ import Blog from "./components/home/Blog";
 import ProfilePage from "./components/common/ProfilePage";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy"; // add this
 import WhatsappFloatingButton from "./components/common/WhatsappFloatingButton";
 
 export default function App() {
@@ -65,6 +66,7 @@ export default function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/blogs" element={<Blog />} />
+                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
                 <Route path="*" element={<NotFound />} />
               </Routes>

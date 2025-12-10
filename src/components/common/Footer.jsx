@@ -170,24 +170,31 @@ const Footer = () => {
             {/* Other Links */}
             <div>
               <h3 className="text-white font-semibold mb-4">Other Links</h3>
-              <ul className="space-y-2.5 text-sm">
-                {[
-                  "Privacy",
-                  "Contact Us",
-                  "Terms & Conditions",
-                  "Shipping Policy",
-                  "Cancellation",
-                  "Cookies",
-                ].map((item, i) => (
-                  <li key={i}>
-                    <a
-                      href="/privacy-policy"
-                      className="text-blue-200 hover:text-[#F9CC00] transition-colors flex items-center gap-2"
-                    >
-                      <span>›</span> {item}
-                    </a>
-                  </li>
-                ))}
+               <ul className="space-y-2.5 text-sm">
+                <li>
+                  <a
+                    href="/privacy-policy"
+                    className="text-blue-200 hover:text-[#F9CC00] flex items-center gap-2"
+                  >
+                    <span>›</span> Privacy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/terms-conditions"
+                    className="text-blue-200 hover:text-[#F9CC00] flex items-center gap-2"
+                  >
+                    <span>›</span> Terms & Conditions
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/cancellation-refunds"
+                    className="text-blue-200 hover:text-[#F9CC00] flex items-center gap-2"
+                  >
+                    <span>›</span> Cancellation & Refunds
+                  </a>
+                </li>
               </ul>
             </div>
 

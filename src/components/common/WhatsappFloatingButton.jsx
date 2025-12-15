@@ -20,7 +20,7 @@ const WhatsappIcon = ({ size = 20 }) => (
 
 const WhatsappFloatingButton = () => {
   // Replace with your actual WhatsApp number (no +, no spaces)
-  const whatsappLink = "https://wa.me/919999999999";
+  const whatsappLink = "https://wa.me/919884883757";
 
   return (
     <a
@@ -62,3 +62,4 @@ const WhatsappFloatingButton = () => {
 };
 
 export default WhatsappFloatingButton;
+

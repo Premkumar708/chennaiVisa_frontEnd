@@ -91,7 +91,7 @@ export default function AuthProvider({ children }) {
     const redirect = sessionStorage.getItem("postLoginRedirect");
     if (redirect) {
       sessionStorage.removeItem("postLoginRedirect");
-      window.history.pushState({}, "", redirect);
+      window.location.href = redirect;
     }
   };
 

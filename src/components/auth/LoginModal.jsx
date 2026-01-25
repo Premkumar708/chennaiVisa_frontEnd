@@ -3,26 +3,24 @@ import { X } from "lucide-react";
 import EmailForm from "./EmailForm.jsx";
 import { useAuth } from "../../context/AuthContext";
 
-const LoginModal = ({ isOpen, onClose, onSuccess}) => {
+const LoginModal = ({ isOpen, onClose, onSuccess }) => {
   const [activeTab, setActiveTab] = useState("login");
   const { login } = useAuth();
 
   if (!isOpen) return null;
 
-const handleSuccess = (payload) => {
-  login(payload);
+  const handleSuccess = (payload) => {
+    login(payload);
 
-  const redirect = sessionStorage.getItem("postLoginRedirect");
-  if (redirect) {
-    sessionStorage.removeItem("postLoginRedirect");
-    window.location.href = redirect; // force redirect to intended page
-    return;
-  }
+    const redirect = sessionStorage.getItem("postLoginRedirect");
+    if (redirect) {
+      sessionStorage.removeItem("postLoginRedirect");
+      window.location.href = redirect;
+      return;
+    }
 
-  if (onSuccess) onSuccess();
-  else onClose();
-};
-;
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
@@ -34,7 +32,6 @@ const handleSuccess = (payload) => {
 
       {/* Modal */}
       <div className="relative bg-gray-900 border border-gray-700 rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
-
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-700">
           <h2 className="text-2xl font-bold text-white">

@@ -3,17 +3,17 @@ import { X } from "lucide-react";
 import EmailForm from "./EmailForm.jsx";
 import { useAuth } from "../../context/AuthContext";
 
-const LoginModal = ({ isOpen, onClose }) => {
+const LoginModal = ({ isOpen, onClose, onSuccess}) => {
   const [activeTab, setActiveTab] = useState("login");
   const { login } = useAuth();
 
   if (!isOpen) return null;
 
-  const handleSuccess = (payload) => {
-    // payload should be { email, name? }
-    login(payload);
-    onClose();
-  };
+ const handleSuccess = (payload) => {
+  login(payload);
+  if (onSuccess) onSuccess();
+  else onClose();
+};
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">

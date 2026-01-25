@@ -17,7 +17,6 @@ export default function VisaApply() {
   const { user } = useAuth();
 
   const [showLogin, setShowLogin] = useState(false);
-  const [pendingNext, setPendingNext] = useState(false);
 
   const API = import.meta.env.VITE_API_LOCAL_URL || "http://localhost:3000";
 
@@ -62,7 +61,7 @@ export default function VisaApply() {
         if (!res.ok) {
           const txt = await res.text().catch(() => null);
           throw new Error(
-            `Failed to fetch product (${res.status}) ${txt || ""}`.trim()
+            `Failed to fetch product (${res.status}) ${txt || ""}`.trim(),
           );
         }
         return res.json();
@@ -80,28 +79,21 @@ export default function VisaApply() {
     return () => (mounted = false);
   }, []);
 
-
-  // fetch product useEffect above ...
-
-useEffect(() => {
-  if (pendingNext && user && product) {
-    navigate(`/visa/${slug}/${purpose}/applyvisa`, {
-      state: { productId: product.id },
-    });
-    setPendingNext(false);
-  }
-}, [pendingNext, user, product]);
-  
   const scrollTo = (ref) =>
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   const handleNext = () => {
     if (!product) return;
+
     if (!user) {
-  setPendingNext(true);
-  setShowLogin(true);
-  return;
-}
+      sessionStorage.setItem(
+        "postLoginRedirect",
+        `/visa/${slug}/${purpose}/applyvisa?productId=${product.id}`,
+      );
+      setShowLogin(true);
+      return;
+    }
+
     navigate(`/visa/${slug}/${purpose}/applyvisa`, {
       state: { productId: product.id },
     });
@@ -330,15 +322,7 @@ useEffect(() => {
         </div>
       </div>
 
-     <LoginModal
-  isOpen={showLogin}
-  onClose={() => setShowLogin(false)}
-  onSuccess={() => {
-    setShowLogin(false);
-    setPendingNext(true);
-  }}
-/>
-
+      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
     </div>
   );
 }

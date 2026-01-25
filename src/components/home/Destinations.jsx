@@ -1,198 +1,510 @@
-import { useState } from "react";
-import { ArrowRight, Plane } from "lucide-react";
+// import React, { useMemo, useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { Plane, Search } from "lucide-react";
+// import { countries } from "../../data/visaProducts";
 
-const destinations = [
-  {
-    name: "Zambia",
-    image:
-      "https://images.pexels.com/photos/4603765/pexels-photo-4603765.jpeg?auto=compress&cs=tinysrgb&w=800",
-    price: "3155",
-    badge: "1+ Visas on Time",
-  },
-  {
-    name: "Malawi",
-    image:
-      "https://images.pexels.com/photos/3041866/pexels-photo-3041866.jpeg?auto=compress&cs=tinysrgb&w=800",
-    price: "6395",
-    badge: null,
-  },
-  {
-    name: "United Arab Emirates - Dubai",
-    image:
-      "https://images.pexels.com/photos/1804898/pexels-photo-1804898.jpeg?auto=compress&cs=tinysrgb&w=800",
-    price: "7366",
-    badge: "5+ Visas on Time",
-  },
-  {
-    name: "Vietnam",
-    image:
-      "https://images.trvl-media.com/place/6024117/f0cc4526-323d-430d-be20-daa78d3a6ebf.jpg?impolicy=fcrop&w=450&h=280&q=medium",
-    price: "2950",
-    badge: "4+ Visas on Time",
-  },
-  {
-    name: "Ireland",
-    image:
-      "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
-    price: "12166",
-    badge: "1+ Visas on Time",
-  },
-  {
-    name: "Austria",
-    image:
-      "https://cdn.britannica.com/20/191120-050-B6C0B7E9/village-Hallstatt-Alps-Austria.jpg",
-    price: "4501",
-    badge: null,
-  },
-];
+// const TABS = ["All", "Trending", "E-Visa", "Express", "Cheapest"];
 
-const formatPrice = (value) => {
-  try {
-    const n = Number(value);
-    return new Intl.NumberFormat("en-IN").format(n);
-  } catch (e) {
-    return value;
+// export default function Visacard() {
+//   const navigate = useNavigate();
+
+//   // UI state
+//   const [activeTab, setActiveTab] = useState("All");
+//   const [query, setQuery] = useState("");
+//   const [page, setPage] = useState(1);
+//   const pageSize = 6; // change to 9/12 if you like
+
+//   // Derived lists
+//   const filtered = useMemo(() => {
+//     const q = query.trim().toLowerCase();
+//     return countries.filter((c) => {
+//       const inTab = activeTab === "All" || (c.tags || []).includes(activeTab);
+//       const inSearch = !q || c.name.toLowerCase().includes(q);
+//       return inTab && inSearch;
+//     });
+//   }, [activeTab, query]);
+
+//   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+
+//   // Keep page in range when filters/search change
+//   useEffect(() => {
+//     setPage(1);
+//   }, [activeTab, query]);
+
+//   // Slice for current page
+//   const start = (page - 1) * pageSize;
+//   const current = filtered.slice(start, start + pageSize);
+
+//   // Scroll to top on page change (feels nicer)
+//   useEffect(() => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//   }, [page]);
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 font-sans pt-24 md:pt-28 pb-12">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         {/* Header row: Tabs + Search */}
+//         <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between mb-6">
+//           {/* Tabs */}
+//           <div className="w-full md:w-auto overflow-x-auto no-scrollbar">
+//             <div className="flex gap-2 bg-white rounded-full p-1.5 shadow-sm w-max md:w-auto min-w-max">
+//               {TABS.map((tab) => (
+//                 <button
+//                   key={tab}
+//                   onClick={() => setActiveTab(tab)}
+//                   className={`px-6 py-2.5 rounded-full font-medium text-sm whitespace-nowrap transition
+//                     ${
+//                       activeTab === tab
+//                         ? "bg-slate-900 text-white"
+//                         : "text-slate-700 hover:bg-slate-100"
+//                     }`}
+//                 >
+//                   {tab}
+//                 </button>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Search */}
+//           <div className="relative w-full md:w-[380px]">
+//             <div className="flex items-center gap-2 bg-white rounded-full px-5 py-3 shadow-sm">
+//               <Plane className="w-5 h-5 text-slate-400" />
+//               <input
+//                 value={query}
+//                 onChange={(e) => setQuery(e.target.value)}
+//                 type="text"
+//                 placeholder="Where do you want to travel"
+//                 className="flex-1 outline-none text-slate-700 placeholder:text-slate-400 text-sm"
+//               />
+//               <button
+//                 onClick={() => setPage(1)}
+//                 className="bg-yellow-400 rounded-full p-2 hover:bg-yellow-500 transition"
+//                 aria-label="Search"
+//               >
+//                 <Search className="w-4 h-4 text-slate-900" />
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Grid */}
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//           {current.map((country) => (
+//             <div
+//               key={country.id}
+//               onClick={() => navigate(`/visa/${country.slug}`)}
+//               className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+//             >
+//               {/* Image */}
+//               <div className="relative h-56 overflow-hidden">
+//                 <img
+//                   src={country.image}
+//                   alt={country.name}
+//                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+//                 />
+//                 {country.badge && (
+//                   <div className="absolute top-4 left-4 bg-slate-900 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+//                     {country.badge}
+//                   </div>
+//                 )}
+//               </div>
+
+//               {/* Text */}
+//               <div className="p-5">
+//                 <div className="flex justify-between items-start mb-1">
+//                   <h3 className="text-xl font-semibold text-slate-900 group-hover:text-slate-700 transition-colors">
+//                     {country.name}
+//                   </h3>
+//                   <span className="text-xl font-bold text-yellow-500">{country.price}</span>
+//                 </div>
+//                 <p className="text-sm text-slate-500">{country.date}</p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* Empty state */}
+//         {current.length === 0 && (
+//           <div className="text-center text-slate-500 py-16">No destinations found.</div>
+//         )}
+
+//         {/* Pagination */}
+//         {filtered.length > pageSize && (
+//           <Pagination
+//             page={page}
+//             totalPages={totalPages}
+//             onChange={(p) => setPage(p)}
+//           />
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// /** Pagination component */
+// function Pagination({ page, totalPages, onChange }) {
+//   // show a small window of pages around the current
+//   const windowSize = 5;
+//   const half = Math.floor(windowSize / 2);
+//   let start = Math.max(1, page - half);
+//   let end = Math.min(totalPages, start + windowSize - 1);
+//   if (end - start + 1 < windowSize) start = Math.max(1, end - windowSize + 1);
+
+//   const nums = [];
+//   for (let i = start; i <= end; i++) nums.push(i);
+
+//   return (
+//     <div className="mt-8 flex items-center justify-center gap-2">
+//       <button
+//         onClick={() => onChange(1)}
+//         disabled={page === 1}
+//         className={`px-3 py-2 rounded-full border text-sm
+//           ${page === 1 ? "text-slate-300 border-slate-200" : "text-slate-700 border-slate-300 hover:bg-slate-100"}`}
+//         aria-label="First page"
+//       >
+//         «
+//       </button>
+//       <button
+//         onClick={() => onChange(Math.max(1, page - 1))}
+//         disabled={page === 1}
+//         className={`px-3 py-2 rounded-full border text-sm
+//           ${page === 1 ? "text-slate-300 border-slate-200" : "text-slate-700 border-slate-300 hover:bg-slate-100"}`}
+//         aria-label="Previous page"
+//       >
+//         ‹
+//       </button>
+
+//       {nums.map((n) => (
+//         <button
+//           key={n}
+//           onClick={() => onChange(n)}
+//           className={`px-4 py-2 rounded-full text-sm font-medium border transition
+//             ${n === page
+//               ? "bg-slate-900 text-white border-slate-900"
+//               : "bg-white text-slate-700 border-slate-300 hover:bg-slate-100"}`}
+//           aria-current={n === page ? "page" : undefined}
+//         >
+//           {n}
+//         </button>
+//       ))}
+
+//       <button
+//         onClick={() => onChange(Math.min(totalPages, page + 1))}
+//         disabled={page === totalPages}
+//         className={`px-3 py-2 rounded-full border text-sm
+//           ${page === totalPages ? "text-slate-300 border-slate-200" : "text-slate-700 border-slate-300 hover:bg-slate-100"}`}
+//         aria-label="Next page"
+//       >
+//         ›
+//       </button>
+//       <button
+//         onClick={() => onChange(totalPages)}
+//         disabled={page === totalPages}
+//         className={`px-3 py-2 rounded-full border text-sm
+//           ${page === totalPages ? "text-slate-300 border-slate-200" : "text-slate-700 border-slate-300 hover:bg-slate-100"}`}
+//         aria-label="Last page"
+//       >
+//         »
+//       </button>
+//     </div>
+//   );
+// }
+
+// Visacard.jsx — updated fetch and error handling (replace your existing component's fetch logic)
+import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Plane, Search } from "lucide-react";
+import { useApp } from "../../context/ApplicationContext";
+
+const TABS = ["All", "Trending", "E-Visa", "Express", "Cheapest"];
+
+export default function Visacard() {
+  const navigate = useNavigate();
+
+  // UI state
+  const [activeTab, setActiveTab] = useState("All");
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const pageSize = 9;
+
+  // data
+  const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState("");
+  const { clearTravellers } = useApp();
+
+  // use environment variable or fallback to localhost:3000
+  const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
+  useEffect(() => {
+    let mounted = true;
+    setLoading(true);
+    setFetchError("");
+    setCountries([]);
+    clearTravellers();
+    (async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/countries`, {
+          headers: { Accept: "application/json" },
+        });
+
+        if (!res.ok) {
+          const ct = res.headers.get("content-type") || "";
+          const body = ct.includes("application/json")
+            ? await res.json().catch(() => null)
+            : await res.text().catch(() => null);
+
+          console.error("/api/countries non-OK:", res.status, body);
+          if (mounted) setFetchError(`Server returned ${res.status}`);
+          return;
+        }
+
+        const contentType = res.headers.get("content-type") || "";
+        if (!contentType.includes("application/json")) {
+          const text = await res.text().catch(() => "<no body>");
+          console.error(
+            "/api/countries returned non-JSON:",
+            contentType,
+            text.slice(0, 1000)
+          );
+          if (mounted)
+            setFetchError("Server returned non-JSON response (see console).");
+          return;
+        }
+
+        const data = await res.json();
+        if (!mounted) return;
+        setCountries(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error("Failed to load countries", err);
+        if (mounted) setFetchError(err.message || "Network error");
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    })();
+
+    return () => (mounted = false);
+  }, [API_BASE]);
+
+  // Derived lists
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return countries.filter((c) => {
+      const inTab = activeTab === "All" || (c.tags || []).includes(activeTab);
+      const inSearch = !q || c.name.toLowerCase().includes(q);
+      return inTab && inSearch;
+    });
+  }, [activeTab, query, countries]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+
+  useEffect(() => setPage(1), [activeTab, query]);
+
+  const start = (page - 1) * pageSize;
+  const current = filtered.slice(start, start + pageSize);
+
+  useEffect(() => window.scrollTo({ top: 0, behavior: "smooth" }), [page]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-28">
+        <div>Loading countries…</div>
+      </div>
+    );
   }
-};
 
-// show relative wording (no absolute dates). Change `days` to alter the relative offset.
-const getRelativeDateText = (days = 7) => `Get on in ${days} days`;
-
-const Destinations = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const filters = ["All", "Trending", "E-Visa", "Express", "Cheapest"];
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-14">
-          <p className="text-yellow-500 font-semibold text-sm uppercase tracking-wider mb-2">
-            TRENDY TRAVEL DESTINATIONS
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 leading-tight tracking-tight">
-            Explore Our Most Popular Destinations,
-          </h2>
-          <div className="flex items-center justify-center mt-2 gap-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 tracking-tight">
-              Tailored For Every Traveler
-            </h2>
+  if (fetchError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-28">
+        <div className="text-center">
+          <div className="text-red-600 font-semibold mb-2">
+            Error loading countries
+          </div>
+          <div className="text-sm text-gray-600 mb-4">{fetchError}</div>
+          <div className="text-xs text-gray-500">
+            Make sure your backend is running on {API_BASE}
           </div>
         </div>
+      </div>
+    );
+  }
 
-        {/* Filters + Button */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-          {/* Filters */}
-          <div className="w-full md:w-auto">
-            <div className="flex overflow-x-auto md:flex-wrap gap-3 md:gap-4 no-scrollbar">
-              {filters.map((filter) => (
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 font-sans pt-24 md:pt-28 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between mb-6">
+          <div className="w-full md:w-auto overflow-x-auto no-scrollbar">
+            <div className="flex gap-2 bg-white rounded-full p-1.5 shadow-sm w-max md:w-auto min-w-max">
+              {TABS.map((tab) => (
                 <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`shrink-0 px-6 py-2.5 rounded-full font-semibold transition-all duration-300 ${
-                    activeFilter === filter
-                      ? "bg-blue-900 text-white shadow-lg"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2.5 rounded-full font-medium text-sm whitespace-nowrap transition
+                    ${
+                      activeTab === tab
+                        ? "bg-slate-900 text-white"
+                        : "text-slate-700 hover:bg-slate-100"
+                    }`}
                 >
-                  {filter}
+                  {tab}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* See More Button */}
-          <button className="bg-yellow-400 text-blue-900 px-6 py-2.5 rounded-full font-semibold hover:bg-yellow-300 transition-all flex items-center gap-2 self-start md:self-auto">
-            See More
-            <ArrowRight size={18} />
-          </button>
+          <div className="relative w-full md:w-[380px]">
+            <div className="flex items-center gap-2 bg-white rounded-full px-5 py-3 shadow-sm">
+              <Plane className="w-5 h-5 text-slate-400" />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                type="text"
+                placeholder="Where do you want to travel"
+                className="flex-1 outline-none text-slate-700 placeholder:text-slate-400 text-sm"
+              />
+              <button
+                onClick={() => setPage(1)}
+                className="bg-yellow-400 rounded-full p-2 hover:bg-yellow-500 transition"
+                aria-label="Search"
+              >
+                <Search className="w-4 h-4 text-slate-900" />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Destination Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {destinations.map((dest, i) => (
-            <article
-              key={i}
-              className="group bg-white rounded-3xl overflow-hidden shadow-md"
-              aria-labelledby={`dest-${i}-title`}
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {current.map((country) => (
+            <div
+              key={country.slug}
+              onClick={() => navigate(`/visa/${country.slug}`)}
+              className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
-              <div className="relative h-64">
+              <div className="relative h-56 overflow-hidden">
                 <img
-                  src={dest.image}
-                  alt={dest.name}
-                  className="w-full h-full object-cover"
+                  src={country.image}
+                  alt={country.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-
-                {/* gradient overlay for legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-
-                {/* small decorative plane */}
-                <div className="absolute top-4 right-4 p-2 rounded-full bg-white/80 shadow-sm">
-                  <Plane size={20} className="-rotate-12 text-yellow-400" />
-                </div>
-
-                {/* badge on image */}
-                {dest.badge && (
-                  <div className="absolute top-4 left-4 bg-blue-900 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
-                    {dest.badge}
+                {country.badge && (
+                  <div className="absolute top-4 left-4 bg-slate-900 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                    {country.badge}
                   </div>
                 )}
               </div>
 
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3
-                      id={`dest-${i}-title`}
-                      className="text-xl font-bold text-blue-900 mb-1"
-                    >
-                      {dest.name}
-                    </h3>
-                    <p className="text-gray-500 text-sm">
-                      {getRelativeDateText(7)}
-                    </p>
-                  </div>
-
-                  <div className="text-right">
-                    <div className="text-xl font-bold text-yellow-500">
-                      ₹{formatPrice(dest.price)}
-                    </div>
-                    <div className="text-xs text-gray-400 mt-1">
-                      All inclusive
-                    </div>
-                  </div>
+              <div className="p-5">
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="text-xl font-semibold text-slate-900 group-hover:text-slate-700 transition-colors">
+                    {country.name}
+                  </h3>
+                  <span className="text-xl font-bold text-yellow-500">
+                    {country.price}
+                  </span>
                 </div>
-
-                <p className="text-gray-600 text-sm mb-4">
-                  Reliable visa processing with fast turnarounds.
-                </p>
-
-                <div className="flex items-center justify-between gap-3">
-                  <button className="">
-                    <a
-                      href="/visa"
-                      className="flex-1 bg-blue-900 text-white px-4 py-2 rounded-xl font-semibold shadow hover:brightness-105 transition-all text-center"
-                    >
-                      Book Now
-                    </a>
-                  </button>
-
-                  <button className="">
-                    <a
-                      href="/contact"
-                      className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 transition-all w-auto"
-                    >
-                      Details <ArrowRight size={16} />
-                    </a>
-                  </button>
-                </div>
+                <p className="text-sm text-slate-500">{country.date}</p>
               </div>
-            </article>
+            </div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-};
 
-export default Destinations;
+        {current.length === 0 && (
+          <div className="text-center text-slate-500 py-16">
+            No destinations found.
+          </div>
+        )}
+
+        {filtered.length > pageSize && (
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+            onChange={(p) => setPage(p)}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Pagination component reused unchanged */
+function Pagination({ page, totalPages, onChange }) {
+  const windowSize = 5;
+  const half = Math.floor(windowSize / 2);
+  let start = Math.max(1, page - half);
+  let end = Math.min(totalPages, start + windowSize - 1);
+  if (end - start + 1 < windowSize) start = Math.max(1, end - windowSize + 1);
+
+  const nums = [];
+  for (let i = start; i <= end; i++) nums.push(i);
+
+  return (
+    <div className="mt-8 flex items-center justify-center gap-2">
+      <button
+        onClick={() => onChange(1)}
+        disabled={page === 1}
+        className={`px-3 py-2 rounded-full border text-sm ${
+          page === 1
+            ? "text-slate-300 border-slate-200"
+            : "text-slate-700 border-slate-300 hover:bg-slate-100"
+        }`}
+        aria-label="First page"
+      >
+        «
+      </button>
+      <button
+        onClick={() => onChange(Math.max(1, page - 1))}
+        disabled={page === 1}
+        className={`px-3 py-2 rounded-full border text-sm ${
+          page === 1
+            ? "text-slate-300 border-slate-200"
+            : "text-slate-700 border-slate-300 hover:bg-slate-100"
+        }`}
+        aria-label="Previous page"
+      >
+        ‹
+      </button>
+
+      {nums.map((n) => (
+        <button
+          key={n}
+          onClick={() => onChange(n)}
+          className={`px-4 py-2 rounded-full text-sm font-medium border transition ${
+            n === page
+              ? "bg-slate-900 text-white border-slate-900"
+              : "bg-white text-slate-700 border-slate-300 hover:bg-slate-100"
+          }`}
+          aria-current={n === page ? "page" : undefined}
+        >
+          {n}
+        </button>
+      ))}
+
+      <button
+        onClick={() => onChange(Math.min(totalPages, page + 1))}
+        disabled={page === totalPages}
+        className={`px-3 py-2 rounded-full border text-sm ${
+          page === totalPages
+            ? "text-slate-300 border-slate-200"
+            : "text-slate-700 border-slate-300 hover:bg-slate-100"
+        }`}
+        aria-label="Next page"
+      >
+        ›
+      </button>
+      <button
+        onClick={() => onChange(totalPages)}
+        disabled={page === totalPages}
+        className={`px-3 py-2 rounded-full border text-sm ${
+          page === totalPages
+            ? "text-slate-300 border-slate-200"
+            : "text-slate-700 border-slate-300 hover:bg-slate-100"
+        }`}
+        aria-label="Last page"
+      >
+        »
+      </button>
+    </div>
+  );
+}

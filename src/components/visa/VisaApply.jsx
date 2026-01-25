@@ -17,6 +17,7 @@ export default function VisaApply() {
   const { user } = useAuth();
 
   const [showLogin, setShowLogin] = useState(false);
+  const [pendingNext, setPendingNext] = useState(false);
 
   const API = import.meta.env.VITE_API_LOCAL_URL || "http://localhost:3000";
 
@@ -79,15 +80,28 @@ export default function VisaApply() {
     return () => (mounted = false);
   }, []);
 
+
+  // fetch product useEffect above ...
+
+useEffect(() => {
+  if (pendingNext && user && product) {
+    navigate(`/visa/${slug}/${purpose}/applyvisa`, {
+      state: { productId: product.id },
+    });
+    setPendingNext(false);
+  }
+}, [pendingNext, user, product]);
+  
   const scrollTo = (ref) =>
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   const handleNext = () => {
     if (!product) return;
     if (!user) {
-      setShowLogin(true);
-      return;
-    }
+  setPendingNext(true);
+  setShowLogin(true);
+  return;
+}
     navigate(`/visa/${slug}/${purpose}/applyvisa`, {
       state: { productId: product.id },
     });

@@ -1008,7 +1008,7 @@ export default function ReviewPay() {
   };
 
   return (
-    <div className="p-4 max-w-lg mx-auto bg-white shadow-xl rounded-xl">
+   <div className="w-full bg-white shadow-none rounded-none">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Final Payment</h2>
       <p className="text-sm text-gray-600 mb-1">
         Product: {product.title || product.name}

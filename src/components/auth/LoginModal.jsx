@@ -9,11 +9,20 @@ const LoginModal = ({ isOpen, onClose, onSuccess}) => {
 
   if (!isOpen) return null;
 
- const handleSuccess = (payload) => {
+const handleSuccess = (payload) => {
   login(payload);
+
+  const redirect = sessionStorage.getItem("postLoginRedirect");
+  if (redirect) {
+    sessionStorage.removeItem("postLoginRedirect");
+    window.location.href = redirect; // force redirect to intended page
+    return;
+  }
+
   if (onSuccess) onSuccess();
   else onClose();
 };
+;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">

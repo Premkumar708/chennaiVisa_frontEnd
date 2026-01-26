@@ -4,6 +4,8 @@ import {
   Mail,
   Instagram,
   Facebook,
+  book,
+  check,
   // Twitter,
   // Linkedin,
 } from "lucide-react";
@@ -117,7 +119,7 @@ function Contactform() {
 
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-                <Mail className="w-6 h-6 text-blue-900" />
+                <Book className="w-6 h-6 text-blue-900" />
               </div>
               <div>
                 <h3 className="text-yellow-500 font-semibold mb-2">Registration No</h3>
@@ -129,7 +131,7 @@ function Contactform() {
 
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-                <Mail className="w-6 h-6 text-blue-900" />
+                <Check className="w-6 h-6 text-blue-900" />
               </div>
               <div>
                 <h3 className="text-yellow-500 font-semibold mb-2">ISO No</h3>

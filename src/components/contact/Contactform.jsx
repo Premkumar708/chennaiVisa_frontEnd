@@ -122,7 +122,7 @@ function Contactform() {
                 <Book className="w-6 h-6 text-blue-900" />
               </div>
               <div>
-                <h3 className="text-yellow-500 font-semibold mb-2">Registration No</h3>
+                <h3 className="text-yellow-500 font-semibold mb-2">GST No</h3>
                 <p className="text-sm text-slate-700">
                   33BVXPD2230A1Z4
                 </p>

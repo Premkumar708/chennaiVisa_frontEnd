@@ -5,14 +5,14 @@ const blogPosts = [
     image:
       "https://images.pexels.com/photos/1470502/pexels-photo-1470502.jpeg?auto=compress&cs=tinysrgb&w=800",
     category: "MALAYSIA",
-    author: "VinothKumar",
+    author: "",
     date: "7 September 2025",
     title: "This 3-Day Malaysia Secret Will Save You Thousands",
   },
   {
     image:
       "https://images.pexels.com/photos/777059/pexels-photo-777059.jpeg?auto=compress&cs=tinysrgb&w=800",
-    category: "SINGAPORE",
+    category: "",
     author: "BhuvaniDharan",
     date: "17 July 2025",
     title:

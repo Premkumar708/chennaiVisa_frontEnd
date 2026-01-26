@@ -13,7 +13,7 @@ const blogPosts = [
     image:
       "https://images.pexels.com/photos/777059/pexels-photo-777059.jpeg?auto=compress&cs=tinysrgb&w=800",
     category: "",
-    author: "BhuvaniDharan",
+    author: "",
     date: "17 July 2025",
     title:
       "Get Your Singapore Tourist Visa in Just 2 Days with Chennai Visa Service - Fast, Reliable & Hassle-Free!",

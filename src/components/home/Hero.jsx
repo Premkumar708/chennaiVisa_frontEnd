@@ -39,7 +39,7 @@ const Hero = () => {
             </p>
 
             {/* Search Bar */}
-            <div className="flex items-center bg-white border border-gray-200 rounded-full shadow-lg w-full max-w-lg mt-6">
+            {/* <div className="flex items-center bg-white border border-gray-200 rounded-full shadow-lg w-full max-w-lg mt-6">
               <Search className="ml-4 text-gray-400" size={20} />
               <input
                 type="text"
@@ -56,7 +56,7 @@ const Hero = () => {
             <p className="text-gray-500 text-xs sm:text-sm mt-3">
               Search your visa by country - e.g., Japan, France, Dubai...
             </p>
-          </div>
+          </div> */}
 
           {/* Bottom Card */}
           <div className="mt-10 sm:mt-14 bg-white shadow-xl rounded-2xl p-4 sm:p-5 w-56 sm:w-64">

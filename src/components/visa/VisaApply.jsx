@@ -175,7 +175,7 @@ export default function VisaApply() {
   return (
     <div className="relative pt-[80px] sm:pt-[96px]">
       <div className={showLogin ? "pointer-events-none blur-sm" : ""}>
-        <div className="max-w-6xl mx-auto p-4 sm:p-6 pt-6 sm:pt-32 space-y-8">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-32 space-y-8">
           {/* Breadcrumb */}
           <nav className="text-sm text-gray-600 mb-2 flex flex-wrap gap-1">
             <Link to="/" className="hover:text-blue-600">
@@ -198,7 +198,7 @@ export default function VisaApply() {
             <img
               src={data.image}
               alt={data.country}
-              className="w-full h-56 object-cover"
+              className="w-full h-40 sm:h-56 object-cover"
             />
             <div className="p-6 bg-white">
               <h1 className="text-2xl font-bold text-gray-800">

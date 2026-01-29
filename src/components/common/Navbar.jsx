@@ -29,11 +29,11 @@ const navLinks = [
     label: "Contact Us",
     icon: <Phone size={18} className="text-[#002b5c]" />,
   },
-  {
-    to: "/blogs",
-    label: "Blogs",
-    icon: <FileText size={18} className="text-[#002b5c]" />,
-  },
+  // {
+  //   to: "/blogs",
+  //   label: "Blogs",
+  //   icon: <FileText size={18} className="text-[#002b5c]" />,
+  // },
   {
     to: "/faq",
     label: "FAQ's",

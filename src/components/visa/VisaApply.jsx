@@ -194,7 +194,7 @@ export default function VisaApply() {
           </nav>
 
           {/* Header */}
-          <div className="rounded-2xl overflow-hidden shadow-lg">
+          <div className="w-full rounded-2xl overflow-hidden shadow-lg">
             <img
               src={data.image}
               alt={data.country}
@@ -218,7 +218,7 @@ export default function VisaApply() {
           </div>
 
           {/* Section nav */}
-          <div className="flex flex-wrap gap-3 justify-center sticky top-20 bg-white py-3 z-10 border-b">
+          <div className="w-full flex flex-wrap gap-3 justify-center sticky top-[120px] bg-white py-3 z-10 border-b">
             {[
               ["Plan Disclaimer", disclaimerRef],
               ["Visa Schedule", scheduleRef],
@@ -238,7 +238,7 @@ export default function VisaApply() {
           </div>
 
           {/* Sections */}
-          <section ref={disclaimerRef}>
+          <section ref={disclaimerRef} className="w-full">
             <h2 className="text-xl font-semibold mb-3">Plan Disclaimer</h2>
             <ul className="list-disc ml-6 text-gray-600">
               {(data.disclaimer || []).map((item, i) => (

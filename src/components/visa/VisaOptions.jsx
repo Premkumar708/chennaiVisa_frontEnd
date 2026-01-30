@@ -421,7 +421,7 @@ export default function VisaOptions() {
     );
 
   return (
-    <div className="h-auto bg-gray-50 pt-24 md:pt-28 pb-12">
+    <div className="h-auto bg-gray-50 pt-24 md:pt-28 pb-12 mt-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
           <Link to="/" className="hover:text-slate-700">

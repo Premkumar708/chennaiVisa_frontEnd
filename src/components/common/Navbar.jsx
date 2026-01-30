@@ -125,7 +125,7 @@ const Navbar = () => {
   return (
     <>
       {/* Top Info Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-[#002b5c] text-white text-xs sm:text-sm">
+      <div className="fixed top-0 left-0 right-0 z-[60] h-8 bg-[#002b5c] text-white text-xs sm:text-sm flex items-center">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 py-1 gap-1">
           <span>
             <strong>GST No:</strong> 33BVXPD2230A1Z4
@@ -136,7 +136,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className="fixed top-[28px] sm:top-[32px] left-0 right-0 z-50 w-full">
+      <nav className="fixed top-8 left-0 right-0 z-50 w-full">
         <div className="bg-[#f1f1f1]/95 backdrop-blur text-blue-900 flex items-center justify-between px-6 py-4 shadow-lg w-full">
           <Link to="/" onClick={goTop} className="flex items-center gap-2">
             <img
@@ -243,7 +243,7 @@ const Navbar = () => {
 
         {/* Mobile Sidebar */}
         <div
-  className={`fixed top-[60px] left-0 h-[calc(100vh-60px)] w-[80%] sm:w-[70%] bg-white shadow-2xl z-50 flex flex-col justify-between transform transition-transform duration-300 ${
+  className={`fixed top-[calc(32px+64px)] left-0 h-[calc(100vh-96px)] w-[80%] sm:w-[70%] bg-white shadow-2xl z-50 flex flex-col justify-between transform transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >

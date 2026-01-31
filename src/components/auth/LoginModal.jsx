@@ -19,6 +19,9 @@ const LoginModal = ({ isOpen, onClose, onSuccess }) => {
     // check redirect stored by protected pages
     const redirect = sessionStorage.getItem("postLoginRedirect");
 
+    // close modal first
+    onClose();
+
     if (redirect) {
       sessionStorage.removeItem("postLoginRedirect");
       navigate(redirect); // or use navigate()

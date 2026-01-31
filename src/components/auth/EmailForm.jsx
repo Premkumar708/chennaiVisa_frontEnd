@@ -60,37 +60,39 @@ const EmailForm = ({ activeTab, onSuccess }) => {
   };
 
   return (
-    <div>
-      <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-        <Mail size={18} className="text-yellow-400" />
-        {isSignup ? "Sign up with Email" : "Login with Email"}
-      </h3>
+  <div>
+    <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
+      <Mail size={18} className="text-yellow-400" />
+      {isSignup ? "Sign up with Email" : "Login with Email"}
+    </h3>
 
-      {error && (
-        <div className="mb-4 p-3 bg-red-900 border border-red-700 text-red-200 rounded-lg text-sm">
-          {error}
-        </div>
-      )}
-      <div className="d-flex gap-2 sign-oauth my-4 text-white text-center">
-        <GoogleLogin
-  onSuccess={(credentialResponse) => {
-    const token = credentialResponse.credential;
-    const decoded = jwtDecode(token);
+    {error && (
+      <div className="mb-4 p-3 bg-red-900 border border-red-700 text-red-200 rounded-lg text-sm">
+        {error}
+      </div>
+    )}
 
-    const userPayload = {
-      name: decoded.name,
-      email: decoded.email,
-      picture: decoded.picture,
-      googleToken: token,
-    };
+    <div className="my-4 text-white text-center">
+      <GoogleLogin
+        onSuccess={(credentialResponse) => {
+          const token = credentialResponse.credential;
+          const decoded = jwtDecode(token);
 
-    // 🔥 send user to LoginModal handler
-    onSuccess(userPayload);
-  }}
-  onError={() => {
-    console.log("Google Login Failed");
-  }}
-/>
+          const userPayload = {
+            name: decoded.name,
+            email: decoded.email,
+            picture: decoded.picture,
+            googleToken: token,
+          };
+
+          onSuccess(userPayload);
+        }}
+        onError={() => console.log("Google Login Failed")}
+      />
+    </div>
+  </div>
+);
+
 
       {/* <form onSubmit={handleSubmit} className="space-y-4">
         {isSignup && (
@@ -142,8 +144,4 @@ const EmailForm = ({ activeTab, onSuccess }) => {
             : "Login with Email"}
         </button>
       </form> */}
-    </div>
-  );
-};
-
 export default EmailForm;

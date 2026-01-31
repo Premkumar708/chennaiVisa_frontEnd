@@ -15,12 +15,12 @@ const LoginModal = ({ isOpen, onClose, onSuccess }) => {
   const handleSuccess = (payload) => {
     // save user in auth context
     login(payload);
+    onClose();
 
     // check redirect stored by protected pages
     const redirect = sessionStorage.getItem("postLoginRedirect");
 
     // close modal first
-    onClose();
 
     if (redirect) {
       sessionStorage.removeItem("postLoginRedirect");

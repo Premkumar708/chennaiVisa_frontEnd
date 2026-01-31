@@ -215,6 +215,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Plane, Search } from "lucide-react";
 import { useApp } from "../../context/ApplicationContext";
+import { useAuth } from "../../context/AuthContext";
+import LoginModal from "../../components/auth/LoginModal";
 
 const TABS = ["All", "Trending", "E-Visa", "Express", "Cheapest"];
 
@@ -232,9 +234,21 @@ export default function Visacard() {
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState("");
   const { clearTravellers } = useApp();
+  const { user } = useAuth();
+  const [showLogin, setShowLogin] = useState(false);
 
   // use environment variable or fallback to localhost:3000
   const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
+  const handleCardClick = (country) => {
+    if (!user || !user.email) {
+      sessionStorage.setItem("postLoginRedirect", `/visa/${country.slug}`);
+      setShowLogin(true);
+      return;
+    }
+
+    navigate(`/visa/${country.slug}`);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -265,7 +279,7 @@ export default function Visacard() {
           console.error(
             "/api/countries returned non-JSON:",
             contentType,
-            text.slice(0, 1000)
+            text.slice(0, 1000),
           );
           if (mounted)
             setFetchError("Server returned non-JSON response (see console).");
@@ -379,7 +393,7 @@ export default function Visacard() {
           {current.map((country) => (
             <div
               key={country.slug}
-              onClick={() => navigate(`/visa/${country.slug}`)}
+              onClick={() => handleCardClick(country)}
               className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               <div className="relative h-56 overflow-hidden">
@@ -423,6 +437,7 @@ export default function Visacard() {
             onChange={(p) => setPage(p)}
           />
         )}
+        <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       </div>
     </div>
   );

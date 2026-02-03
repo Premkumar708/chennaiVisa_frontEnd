@@ -131,7 +131,7 @@ const Navbar = () => {
             <strong>GST No:</strong> 33BVXPD2230A1Z4
           </span>
           <span className="whitespace-nowrap">
-            <strong>ISO No:</strong> ISO-9001-2015
+            <strong>ISO-9001-2015 Certified Agency:</strong>
           </span>
         </div>
       </div>

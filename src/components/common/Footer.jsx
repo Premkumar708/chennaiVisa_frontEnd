@@ -127,7 +127,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3 text-sm">
                   <Phone className="text-[#F9CC00]" size={18} />
                   <div>
-                    <div className="text-white">+91  98848 83757</div>
+                    <div className="text-white">+91 98848 83757</div>
                     <div className="text-blue-300 text-xs">
                       (Monday to Saturday, 10 AM - 6 PM)
                     </div>
@@ -162,7 +162,7 @@ const Footer = () => {
                         <span>›</span> {item}
                       </a>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>
@@ -170,7 +170,7 @@ const Footer = () => {
             {/* Other Links */}
             <div>
               <h3 className="text-white font-semibold mb-4">Other Links</h3>
-               <ul className="space-y-2.5 text-sm">
+              <ul className="space-y-2.5 text-sm">
                 <li>
                   <a
                     href="/privacy-policy"
@@ -205,18 +205,48 @@ const Footer = () => {
                 Stay connected and explore the world with us!
               </p>
               <ul className="space-y-2.5 text-sm">
-                <li className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors">
-                  <Instagram size={16} /> Chennai Visa Serviceindia
+                <li>
+                  <a
+                    href="https://www.instagram.com/chennaivisaservices/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors"
+                  >
+                    <Instagram size={16} /> Chennai Visa Serviceindia
+                  </a>
                 </li>
-                <li className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors">
-                  <Facebook size={16} /> Chennai Visa Serviceofficial
+
+                <li>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61583343781733"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors"
+                  >
+                    <Facebook size={16} /> Chennai Visa Serviceofficial
+                  </a>
                 </li>
-                <li className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors">
-                  <span>@Chennai Visa Serviceofficial</span>
+                {/* <li>
+                  <a
+                    href="https://www.instagram.com/chennaivisaservices/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors"
+                  >
+                    <span>@Chennai Visa Serviceofficial</span>
+                  </a>
                 </li>
-                <li className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors">
-                  <span>Chennai Visa Service</span>
-                </li>
+
+                <li>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61583343781733"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-200 hover:text-[#F9CC00] transition-colors"
+                  >
+                    <span>Chennai Visa Service</span>
+                  </a>
+                </li> */}
               </ul>
             </div>
           </div>

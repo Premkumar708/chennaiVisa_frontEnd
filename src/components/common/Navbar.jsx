@@ -125,7 +125,7 @@ const Navbar = () => {
   return (
     <>
       {/* Top Info Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-8 bg-[#002b5c] text-white text-xs sm:text-sm flex items-center">
+      <div className="fixed top-0 left-0 right-0 z-[60] h-8 bg-[#002b5c] text-white text-xs sm:text-sm flex items-center p-2">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center px-4 w-full">
           <span className="whitespace-nowrap">
             <strong> GST No: </strong> 33BVXPD2230A1Z4
